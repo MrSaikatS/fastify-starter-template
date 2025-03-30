@@ -1,9 +1,19 @@
-import { FastifyPluginAsync } from 'fastify'
+import { FastifyPluginAsyncTypebox } from "@fastify/type-provider-typebox";
 
-const root: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
-  fastify.get('/', async function (request, reply) {
-    return { root: true }
-  })
-}
+const root: FastifyPluginAsyncTypebox = async (fastify): Promise<void> => {
+  fastify.route({
+    method: "GET",
 
-export default root
+    url: "/",
+
+    schema: {},
+
+    handler: async (request, reply) => {
+      fastify.log.info(request);
+
+      reply.send({ root: true });
+    },
+  });
+};
+
+export default root;
