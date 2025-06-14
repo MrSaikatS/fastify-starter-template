@@ -23,7 +23,7 @@
     "fastify-plugin": "5.0.0"
   },
   "devDependencies": {
-    "@types/node": "22.1.0",
+    "@types/node": "24.0.1",
     "c8": "10.1.2",
     "ts-node": "10.4.0",
     "concurrently": "9.0.0",
